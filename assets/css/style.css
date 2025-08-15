@@ -216,7 +216,7 @@ body {
   font-weight: 100;
   line-height: 1.2;
   position: relative;
-  padding-left: 22px;
+  padding-left: 20px;
 }
 
 .area h3::before {
@@ -232,7 +232,7 @@ body {
 
 .area p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: #155088;
   padding-left: 22px;
