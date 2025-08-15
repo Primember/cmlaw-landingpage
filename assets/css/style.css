@@ -212,11 +212,11 @@ body {
 .area h3 {
   margin: 0 0 8px;
   color: var(--navy);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 100;
   line-height: 1.2;
   position: relative;
-  padding-left: 20px;
+  padding-left: 22px;
 }
 
 .area h3::before {
