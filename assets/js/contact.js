@@ -50,3 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// sticky header 
+window.addEventListener("scroll", function() {
+let navArea = document.getElementBy("pb-navbar");
+
+if (window.pageYOffset > 0) {
+navArea.classList.add("is-sticky");
+} else {
+navArea.classList.remove("is-sticky");
+}
+});
