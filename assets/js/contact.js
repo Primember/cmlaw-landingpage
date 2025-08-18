@@ -50,22 +50,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-function reveal() {
-    let reveals = document.querySelectorAll(".reveal");
-
-    reveals.forEach((el, index) => {
-        let windowHeight = window.innerHeight;
-        let elementTop = el.getBoundingClientRect().top;
-        let elementVisible = 100;
-
-        if (elementTop < windowHeight - elementVisible) {
-            // delay tăng dần theo thứ tự
-            el.style.transitionDelay = `${index * 0.2}s`;
-            el.classList.add("active");
-        }
-    });
-}
-
-window.addEventListener("scroll", reveal);
-window.addEventListener("load", reveal);

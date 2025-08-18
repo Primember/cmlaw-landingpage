@@ -1,0 +1,28 @@
+@media (min-width: 1200px) {
+  .navbar {
+    --nav-height: 80px;
+  }
+
+  .navbar .container {
+    height: var(--nav-height);
+  }
+
+  .navbar .navbar-collapse,
+  .navbar .navbar-nav,
+  .navbar .nav-item {
+    height: var(--nav-height);
+  }
+
+  .navbar .nav-item .nav-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: var(--nav-height);
+    line-height: var(--nav-height);
+    display: inline-block;
+  }
+
+  .hero-section {
+    margin-top: var(--nav-height);
+    overflow: hidden;
+  }
+}
