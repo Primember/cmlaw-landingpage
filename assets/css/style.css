@@ -126,7 +126,6 @@ html {
 .sub-text-hero {
     font-size: 18px;
     font-family: 'Dosis', sans-serif;
-    letter-spacing: 9px;
     color: #ffffff;
 }
 
@@ -174,9 +173,8 @@ body {
   
   /* Use flexbox for vertical and horizontal centering inside the column */
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 60px 24px;
+  padding: 68px 0px 68px 150px ;
   min-height: 420px;
 }
 
@@ -200,7 +198,7 @@ body {
 
 /* Right panel now uses Bootstrap's col-md-7 class */
 .right-panel {
-  padding: 48px 56px;
+  padding: 68px 56px;
   
   /* Use CSS Grid for the content within this column */
   display: grid;
@@ -287,7 +285,7 @@ font-weight: 500;
   font-size: 42px;
   /* padding: 110px 0px 86px 0px; */
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
   color: #00305B;
 }
 .our-vision-section p {
@@ -619,3 +617,17 @@ body {
 
 /* chat with us area */
 
+
+
+/* scroll reveal */
+
+.reveal {
+    opacity: 0;                
+    transform: translateY(50px); 
+    transition: all 0.8s ease;  
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
