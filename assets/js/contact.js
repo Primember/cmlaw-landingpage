@@ -1,25 +1,68 @@
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    let firstName = document.getElementById("firstName").value.trim();
-    let lastName = document.getElementById("lastName").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let subject = document.getElementById("subject").value.trim();
-    let message = document.getElementById("message").value.trim();
+    let isValid = true;
 
-    if (!firstName || !lastName || !email || !subject || !message) {
-        alert("Vui lòng điền vào trường này.");
-        return;
+    // Clear old errors
+    document.querySelectorAll("#contactForm .error-message").forEach(el => {
+        el.innerText = "";
+        el.style.display = "none";
+    });
+    document.querySelectorAll("#contactForm input, #contactForm textarea").forEach(el => {
+        el.classList.remove("input-error");
+    });
+
+    // Get fields
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let email = document.getElementById("email");
+    let subject = document.getElementById("subject");
+    let message = document.getElementById("message");
+
+    // Validation
+    if (!firstName.value.trim()) {
+        showError(firstName, "Vui lòng nhập tên.");
+        isValid = false;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Hãy điền đúng định dạng mail.");
-        return;
+    if (!lastName.value.trim()) {
+        showError(lastName, "Vui lòng nhập họ.");
+        isValid = false;
     }
 
-    alert("Gửi thành công!");
-    this.reset();
+    if (!email.value.trim()) {
+        showError(email, "Vui lòng nhập email.");
+        isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        showError(email, "Hãy nhập đúng định dạng email.");
+        isValid = false;
+    }
+
+    if (!subject.value.trim()) {
+        showError(subject, "Vui lòng nhập tiêu đề.");
+        isValid = false;
+    }
+
+    if (!message.value.trim()) {
+        showError(message, "Vui lòng nhập nội dung.");
+        isValid = false;
+    }
+
+    // If all valid
+    if (isValid) {
+        alert("Gửi thành công!");
+        this.reset();
+    }
 });
+
+function showError(inputEl, message) {
+    let errorEl = inputEl.parentElement.querySelector(".error-message");
+    errorEl.innerText = message;
+    errorEl.style.display = "block";
+
+    // highlight border
+    inputEl.classList.add("input-error");
+}
 
 
 /* back to top button handle */
@@ -61,3 +104,5 @@ navArea.classList.add("is-sticky");
 navArea.classList.remove("is-sticky");
 }
 });
+
+
