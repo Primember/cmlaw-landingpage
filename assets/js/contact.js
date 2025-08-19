@@ -8,16 +8,16 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     let message = document.getElementById("message").value.trim();
 
     if (!firstName || !lastName || !email || !subject || !message) {
-        alert("Please fill in all required fields.");
+        alert("Vui lòng điền vào trường này.");
         return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert("Please enter a valid email address.");
+        alert("Hãy điền đúng định dạng mail.");
         return;
     }
 
-    alert("Form submitted successfully!");
+    alert("Gửi thành công!");
     this.reset();
 });
 

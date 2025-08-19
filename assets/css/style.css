@@ -16,28 +16,55 @@
     font-weight: normal;
     font-style: normal;
 }
-
+/* navbar menu */
+.top-info {
+    background: white;
+    padding: 10px 0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.top-info.hide {
+    margin-top: -60px;
+    opacity: 0;
+    visibility: hidden;
+}
+.info-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px; /* spacing between items */
+    text-align: center;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+}
+.info-item i {
+    color: #0073aa; /* icon color */
+    font-size: 18px;
+}
 .navbar {
     background-color: #fff;
 }
-
 #pb-navbar {
-display: flex;
-justify-content: space-between;
-padding: 0px 10%;
-position: fixed;
-width: 100%;
-top: 0px;
-background: white;
-transition: background 0.5s;
-z-index: 9999;
+  position: sticky;
+  top: 0;          /* 👈 same height as .top-info */
+  left: 0;
+  width: 100%;
+  background: white;
+  transition: top 0.3s ease; /* smooth move */
+  z-index: 9999;
 }
-
+.top-info.hide + #pb-navbar {
+  top: 0;   /* 👈 when .top-info is hidden, navbar moves to top */
+}
 .navbar .container {
     background-color: inherit;
 }
 .navbar-nav {
-      font-style: normal;
+    font-style: normal;
     font-variant-caps: normal;
     font-variant-ligatures: normal;
     font-variant-numeric: normal;
@@ -56,6 +83,9 @@ z-index: 9999;
     line-height: 1.4em;
     font-family: raleway, sans-serif;
 }
+
+
+
 .mouse-wrap,
 .scroll-wrap {
     position: absolute;
@@ -165,12 +195,12 @@ body {
     letter-spacing: 2px;
 }
 
-.sub-text-hero {
+/* .sub-text-hero {
     font-size: 18px;
     font-family: "Dosis", sans-serif;
     letter-spacing: 9px;
     color: #ffffff;
-}
+} */
 
 .container-hero-section {
     height: 801px;
@@ -202,13 +232,12 @@ body {
 
 /* Left panel now uses Bootstrap's col-md-5 class */
 .left-panel {
+    width: 100%;
     background: var(--panel);
     border-right: 1px solid var(--divider);
-
-    /* Use flexbox for vertical and horizontal centering inside the column */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
     padding: 60px 24px;
     min-height: 420px;
 }
@@ -216,11 +245,20 @@ body {
 .left-panel h2 {
     margin: 0;
     color: var(--navy);
-    text-align: center;
     line-height: 1.05;
     letter-spacing: 0.5px;
     font-weight: bold;
     font-size: 56px;
+    margin-bottom: 333px;
+}
+.left-panel i{
+    position: absolute;
+    text-align: center;
+    margin: 0;
+    color: var(--navy);
+    margin-bottom: 60px;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
 }
 
 .left-panel h2 span {
@@ -252,17 +290,6 @@ body {
     padding-left: 22px;
 }
 
-.area h3::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: var(--teal);
-    position: absolute;
-    left: 0;
-    top: 0.35em;
-    border-radius: 2px;
-}
-
 .area p {
     margin: 0;
     font-size: 14px;
@@ -284,6 +311,8 @@ body {
 
     .left-panel h2 {
         text-align: left;
+        width:100%;
+        margin-bottom: 333px;;
     }
 
     /* Right panel on small screens becomes a single column */
@@ -299,7 +328,9 @@ body {
     text-align: center;
     padding: 80px 20px;
 }
-
+.our-vision-section img{
+    width:100%;
+}
 .our-vision-section .container {
     display: inherit;
     max-width: 900px;
@@ -436,7 +467,7 @@ p.contact {
     position: relative;
     background-image: url("../images/contact-image.avif");
     background-attachment: fixed;
-    background-position: cover;
+    background-position: center;
     background-size: cover;
     color: white;
     padding: 60px 0;
@@ -477,6 +508,7 @@ p.contact {
 .contact-right {
     flex: 2;
     width: 600px !important;
+    letter-spacing: 1px;
 }
 
 .contact-right h3 {
@@ -486,11 +518,6 @@ p.contact {
 .contact-right p {
     line-height: 1.5em;
     font-size: 16px;
-}
-
-.contact-right a {
-    color: white;
-    text-decoration: underline;
 }
 
 form {
@@ -507,19 +534,7 @@ form {
     margin-bottom: 15px;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    background: transparent;
-}
 
-input::placeholder,
-textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
 
 button {
     width: 100%;
@@ -537,14 +552,47 @@ button:hover {
     color: white;
     border-color: #909599;
 }
+#contactForm input,
+#contactForm textarea {
+    border-color: #ccc;
+  background-color: #3579B7;   
+  color: #fff;                 
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
 
-input:invalid,
-textarea:invalid {
-    border-color: #fcff40;
+/* Placeholder text */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: #e0e0e0; /* light gray/white placeholder */
+  opacity: 1;
 }
-#form-contact-group:hover {
-    border-color: #8cd624;
+
+/* Hover */
+#contactForm input:hover,
+#contactForm textarea:hover {
+  border-color: #8cd624;
+  background-color: transparent; /* transparent on hover */
+  color: #fff;                   /* keep text white */
 }
+
+/* Focus */
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #8cd624;
+  box-shadow: 0 0 5px rgba(140, 214, 36, 0.5);
+  background-color: transparent; /* transparent on focus */
+  color: #fff;                   /* keep text white */
+}
+/* Invalid (only when not typing/hovering) */
+#contactForm input:invalid:not(:focus):not(:hover),
+#contactForm textarea:invalid:not(:focus):not(:hover) {
+  border-color: #FCFF40;
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -755,7 +803,7 @@ emoji-picker {
 }
 
 .footer-container {
-    width: 90%;
+    width: 62%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
