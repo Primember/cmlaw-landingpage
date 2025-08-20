@@ -1,14 +1,14 @@
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+document.getElementById("contactForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
     let isValid = true;
 
     // Clear old errors
-    document.querySelectorAll("#contactForm .error-message").forEach(el => {
+    document.querySelectorAll("#contactForm .error-message").forEach((el) => {
         el.innerText = "";
         el.style.display = "none";
     });
-    document.querySelectorAll("#contactForm input, #contactForm textarea").forEach(el => {
+    document.querySelectorAll("#contactForm input, #contactForm textarea").forEach((el) => {
         el.classList.remove("input-error");
     });
 
@@ -49,11 +49,11 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     }
 
     // If all valid
-if (isValid) {
-    // Show custom popup
-    document.getElementById("successPopup").style.display = "flex";
-    this.reset();
-}
+    if (isValid) {
+        // Show custom popup
+        document.getElementById("successPopup").style.display = "flex";
+        this.reset();
+    }
 });
 function closePopup() {
     document.getElementById("successPopup").style.display = "none";
@@ -68,45 +68,47 @@ function showError(inputEl, message) {
     inputEl.classList.add("input-error");
 }
 
-
 /* back to top button handle */
-// document.getElementById("back-To-Top-Btn").addEventListener("click", function (e) {
-//     e.preventDefault(); 
-//     $('html, body').animate({scrollTop:0}, '300');
-// });
-var btn = $('#back-To-Top-Btn');
-      btn.on('click', function(e) {
-        e.preventDefault();
-        $('html, body').animate({scrollTop:0}, '300');
-      });
+var btn = $("#back-To-Top-Btn");
+btn.on("click", function (e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "300");
+});
 
 /*parallax scroll */
-document.addEventListener('DOMContentLoaded', function() {
-  const parallaxImages = document.querySelectorAll('.parallax-section');
-  const speed = 0.5;
+document.addEventListener("DOMContentLoaded", function () {
+    const parallaxImages = document.querySelectorAll(".parallax-section");
+    const speed = 0.5;
 
-  window.addEventListener('scroll', function() {
-    parallaxImages.forEach(function(el) {
-      const rect = el.getBoundingClientRect();
-      const distFromTop = rect.top;
-      
-      // Calculate the new Y position based on scroll distance
-      const newY = distFromTop * speed;
-      
-      el.style.transform = `translateY(${newY}px)`;
+    window.addEventListener("scroll", function () {
+        parallaxImages.forEach(function (el) {
+            const rect = el.getBoundingClientRect();
+            const distFromTop = rect.top;
+
+            // Calculate the new Y position based on scroll distance
+            const newY = distFromTop * speed;
+
+            el.style.transform = `translateY(${newY}px)`;
+        });
     });
+});
+
+// sticky header
+window.addEventListener("scroll", function () {
+    let navArea = document.getElementBy("pb-navbar");
+
+    if (window.pageYOffset > 0) {
+        navArea.classList.add("is-sticky");
+    } else {
+        navArea.classList.remove("is-sticky");
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const toggler = document.querySelector(".navbar-toggler");
+  const menu = document.getElementById("probootstrap-navbar");
+
+  toggler.addEventListener("click", function() {
+    menu.classList.toggle("show"); 
   });
 });
-
-// sticky header 
-window.addEventListener("scroll", function() {
-let navArea = document.getElementBy("pb-navbar");
-
-if (window.pageYOffset > 0) {
-navArea.classList.add("is-sticky");
-} else {
-navArea.classList.remove("is-sticky");
-}
-});
-
-
