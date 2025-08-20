@@ -9,6 +9,14 @@
         <meta name="description" content="Van phong Luat su CMLaw" />
         <meta name="keywords" content="cmlaw, luat, luat su, c&m, luat cm" />
 
+
+
+
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet" />
         <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css" />
         <link rel="stylesheet" href="assets/fonts/ionicons/css/ionicons.min.css" />
@@ -46,7 +54,7 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
             <div class="container">
                 <a class="navbar-brand" href="https://cmlaw.vn">
                     <img src="https://cmlaw.vn/themes/echula/images/logo.png" alt="C&M Lawfirm Logo" style="height: 40px; margin-right: 8px;" />
@@ -84,8 +92,37 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_scrolled-light" id="pb-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="https://cmlaw.vn">
+      <img src="https://cmlaw.vn/themes/echula/images/logo.png" 
+           alt="C&M Lawfirm Logo" 
+           style="height: 40px; margin-right: 8px;" />
+      CMLAW
+    </a>
 
+    <!-- Toggle button (hamburger) -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-navbar"
+      aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="ion-navicon"></i></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="probootstrap-navbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#home-section-area">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#practice-area">Giới thiệu</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#our-vision-area">Dịch vụ</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#">Biểu mẫu</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#">Văn bản</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#">Tuyển dụng</a></li>
+        <li class="nav-item"><a class="nav-link text-uppercase" href="#section-contact">Liên hệ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
         <!-- Hero Section -->
         <section class="hero-section parallax" id="hero-section-area">
             <div class="container-fluid container-hero-section">
@@ -179,7 +216,7 @@
         <section class="our-attorneys-section pb_section bg-light" id="our-attorneys-area">
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
-                    <div class="col-lg-7 fade-in">
+                    <div class="col-lg-7 fade-in cm-slogan">
                         <h2 class="section-title">VĂN PHÒNG LUẬT SƯ C&M</h2>
                         <p><strong>20 năm đồng hành cùng các doanh nghiệp và doanh nhân</strong></p>
                     </div>
@@ -290,7 +327,7 @@
         </div>
 
         <!-- Chat Button -->
-        <div class="chat-btn text-uppercase" onclick="openChat()">Nhắn tin</div>
+        <div class="chat-btn text-uppercase" onclick="openChat()">Bạn cần tư vấn</div>
 
         <!-- Chat popup -->
         <div class="chat-popup" id="chatPopup">
@@ -343,8 +380,8 @@
         <footer class="site-footer">
             <div class="footer-container">
                 <p>
-                    © 2012 by Knoll & Walters LLP. Powered and secured by
-                    <a href="https://cmlaw.vn" target="_blank" style="text-decoration: underline;">CMLAW</a>
+                    Copyright © 2012 - All Rights Reserved - 
+                    <a href="https://cmlaw.vn" target="_blank" style="text-decoration: underline;">cmlaw.vn</a>
                 </p>
                 <div class="social-icons">
                     <a href="https://web.facebook.com/CMLAWonline"><img src="assets/images/facebook-icon.png" alt="Facebook" /></a>
@@ -371,3 +408,10 @@
         <script src="assets/js/site-effect.js"></script>
     </body>
 </html>
+<div id="successPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>🎉 Gửi thành công!</h2>
+    <p>Cảm ơn bạn đã liên hệ. Chúng tôi sẽ phản hồi sớm nhất.</p>
+    <button onclick="closePopup()">Đóng</button>
+  </div>
+</div>

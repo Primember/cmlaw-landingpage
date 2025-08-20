@@ -49,11 +49,15 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     }
 
     // If all valid
-    if (isValid) {
-        alert("Gửi thành công!");
-        this.reset();
-    }
+if (isValid) {
+    // Show custom popup
+    document.getElementById("successPopup").style.display = "flex";
+    this.reset();
+}
 });
+function closePopup() {
+    document.getElementById("successPopup").style.display = "none";
+}
 
 function showError(inputEl, message) {
     let errorEl = inputEl.parentElement.querySelector(".error-message");

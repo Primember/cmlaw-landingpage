@@ -20,6 +20,8 @@
     padding: 10px 0;
     font-size: 14px;
     transition: all 0.3s ease;
+    z-index: 9999;
+    position: relative;
 }
 .top-info.hide {
     margin-top: -60px;
@@ -40,7 +42,7 @@
     color: #333;
 }
 .info-item i {
-    color: #0073aa; /* icon color */
+    color: #00305b; /* icon color */
     font-size: 18px;
 }
 .navbar {
@@ -300,8 +302,8 @@ stacked view */
 }
 .section-title {
     font-size: 42px;
-    /* padding: 110px 0px 86px 0px; */
-    font-weight: 300;
+    margin-bottom: 40px !important;
+    font-weight: bold;
     letter-spacing: 1px;
     color: #00305b;
 }
@@ -309,7 +311,8 @@ stacked view */
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 20px;
-} /* Parallax background */
+} 
+/* Parallax background */
 .parallax-section {
     position: relative;
     height: 100vh; /* Adjust height as needed */
@@ -346,19 +349,28 @@ rgb(var(--color_40)); */
 }
 .parallax-content p {
     font-size: 1.2rem;
-} /* OUR ATTORNEYS */
+} 
+
+
+/* OUR ATTORNEYS */
+
 h2 {
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     font-weight: 400;
     margin-bottom: 90px;
 }
 .our-attorneys-section {
     padding: 80px 20px;
+    background-image:linear-gradient(rgba(0, 48, 91, 0.9), rgba(255, 255, 255, 0.9)), url("../images/hero-bg.jpg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.our-attorneys {
-    padding: 60px 20px;
-    text-align: center;
+.our-attorneys-section p {
+    font-size: 42px;
+    margin-bottom: 4rem;
+    color: #ffffff
 }
 .our-attorneys-section {
     background-color: #eaf4f6;
@@ -387,10 +399,12 @@ p.contact {
     font-size: 30px;
     margin: 5px 0 auto;
     color: #00305b;
+    font-weight: bold;
 }
 .team-member p {
     margin: 5px 0 auto;
     font-size: 20px;
+    font-weight: bold;
 }
 .role {
     color: #00509e;
@@ -434,6 +448,9 @@ p.contact {
     font-weight: bold;
     line-height: 1.3;
     background-color: rgba(0, 41, 98, 0.65);
+}
+.contact-title {
+    font-size: 42px;;
 }
 .contact-right {
     flex: 2;
@@ -568,7 +585,6 @@ body {
     opacity: 0.6;
 } /* chat button */
 .chat-btn {
-    font-size: 18px;
     position: fixed;
     bottom: 0px;
     right: 25px;
@@ -671,7 +687,6 @@ button at top */
     color: #8894ab;
     cursor: pointer;
     font-size: 40px;
-    margin-left: 0 8px;
     user-select: none;
 }
 .emoji-btn:hover {
@@ -684,7 +699,7 @@ button at top */
 .rotate-45 {
     width: 30px;
     height: 30px;
-    margin: 0px 5px 4.717px 5px;
+    margin: 0px 5px 4.717px -5px;
     color: #8894ab;
     transform: rotate(45deg);
     transform-origin: center; /* xoay quanh tâm */
@@ -785,4 +800,67 @@ emoji-picker {
     position: fixed;
     bottom: 20px;
     z-index: 999;
+}
+
+/* popup 'send success' */
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;              /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup box */
+.popup-box {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: popupScale 0.3s ease;
+}
+
+.popup-box h2 {
+  margin-bottom: 10px;
+  color: #28a745;
+}
+
+.popup-box button {
+  background: #28a745 !important;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.popup-box button:hover {
+  background: #218838;
+}
+
+/* Small animation */
+@keyframes popupScale {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* toggle menu icon  */
+.ion-navicon {
+    color: #000000;
+    font-size: xx-large;
+}
+.navbar-toggler, .navbar-toggler:hover,.navbar-toggler:focus {
+    width: 11%;
+    border: 1px solid red !important;
+    background: transparent;
+    background-color: transparent !important;
 }
